@@ -5,7 +5,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/02/04_Imports/tempconv"
+	"github.com/the-golang/02/04_Imports/tempconv"
 )
 
 func main() {
@@ -17,6 +17,6 @@ func main() {
 		}
 		f := tempconv.Fahrenheit(t)
 		c := tempconv.Celsius(t)
-		fmt.Printf("%s = %s, %s = %s\n", f, tempconv.FToC(f), c, tempconv.CToF(c))
+		fmt.Printf("%g = %g, %g = %g\n", f, tempconv.FToC(f), c, tempconv.CToF(c))
 	}
 }
