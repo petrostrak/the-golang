@@ -10,3 +10,13 @@ func nonEmpty(str []string) []string {
 	}
 	return str[:i]
 }
+
+func nonEmptyAlt(str []string) []string {
+	out := str[:0] // creating an zero-length slice of original
+	for _, s := range str {
+		if s != "" {
+			out = append(out, s)
+		}
+	}
+	return out
+}
