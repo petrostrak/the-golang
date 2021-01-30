@@ -34,4 +34,10 @@ func main() {
 		log.Fatalf("JSON Marshaling failed: %s", err)
 	}
 	fmt.Printf("%s/n", data)
+
+	var titles []struct{ Title string }
+	if err = json.Unmarshal(data, &titles); err != nil {
+		log.Fatalf("JSON Marshaling failed: %s", err)
+	}
+	fmt.Println(titles)
 }
