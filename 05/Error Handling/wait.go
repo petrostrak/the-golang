@@ -24,3 +24,10 @@ func WaitForServer(url string) error {
 	}
 	return fmt.Errorf("server %s failed to respond after %s", url, timeout)
 }
+
+func main() {
+	url := "https://www.google.com"
+	if err := WaitForServer(url); err != nil {
+		log.Fatalf("Site is down: %v\n", err) // log functions by default prefixes the time and date to the error msg
+	}
+}
