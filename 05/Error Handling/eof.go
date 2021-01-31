@@ -22,6 +22,7 @@ func endOfFile() error {
 		if err != nil {
 			return fmt.Errorf("read failed: %v\n", err)
 		}
+		fmt.Println(r)
 	}
 	return nil
 }
