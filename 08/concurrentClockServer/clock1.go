@@ -18,6 +18,8 @@ func handleConn(c net.Conn) {
 	}
 }
 
+// netcat utility for manupulating the network connections
+// ./concurrentClockServer & nc localhost 8000
 func main() {
 	listener, err := net.Listen("tcp", "localhost:8000")
 	if err != nil {
