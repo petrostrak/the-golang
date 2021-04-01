@@ -11,26 +11,22 @@ func main() {
 
 	// counter
 	go func() {
-		for x := 0; ; x++ {
+		for x := 0; x < 100; x++ {
 			naturals <- x
 		}
+		close(naturals)
 	}()
 
 	// // squarer
 	go func() {
-		for {
-			x, ok := <-naturals
-			if !ok {
-				break // channel was closed and drained
-			}
-			// x := <-naturals
+		for x := range naturals {
 			squares <- int(math.Pow(float64(x), 2))
 		}
 		close(squares)
 	}()
 
 	// printer
-	for {
-		fmt.Println(<-squares)
+	for x := range squares {
+		fmt.Println(x)
 	}
 }
