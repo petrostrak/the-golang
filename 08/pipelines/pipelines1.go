@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func main() {
 	naturals := make(chan int)
@@ -16,8 +19,8 @@ func main() {
 	// // squarer
 	go func() {
 		for {
-			x := <-naturals
-			squares <- x * x
+			// x := <-naturals
+			squares <- int(math.Pow(float64(<-naturals), 2))
 		}
 	}()
 
