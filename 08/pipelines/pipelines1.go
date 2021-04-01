@@ -19,9 +19,14 @@ func main() {
 	// // squarer
 	go func() {
 		for {
+			x, ok := <-naturals
+			if !ok {
+				break // channel was closed and drained
+			}
 			// x := <-naturals
-			squares <- int(math.Pow(float64(<-naturals), 2))
+			squares <- int(math.Pow(float64(x), 2))
 		}
+		close(squares)
 	}()
 
 	// printer
