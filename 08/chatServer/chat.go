@@ -34,6 +34,7 @@ func broadcaster() {
 	}
 }
 
+// ./chat & ./netcat
 func handleConn(conn net.Conn) {
 	ch := make(chan string) // outgoing client messages
 	go clientWriter(conn, ch)
